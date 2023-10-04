@@ -7,14 +7,18 @@ fn main() {
     loop {
         println!("Enter a command (list, create, delete, exit):");
         let mut input = String::new();
-        io::stdin().read_line(&mut input).expect("Failed to read line");
+        io::stdin()
+            .read_line(&mut input)
+            .expect("Failed to read line");
         let command = input.trim();
 
         match command {
             "list" => {
                 println!("Enter the directory path:");
                 let mut input = String::new();
-                io::stdin().read_line(&mut input).expect("Failed to read line");
+                io::stdin()
+                    .read_line(&mut input)
+                    .expect("Failed to read line");
                 let path = input.trim();
                 let dir = Path::new(path);
                 if dir.is_dir() {
@@ -30,7 +34,9 @@ fn main() {
             "create" => {
                 println!("Enter the file path:");
                 let mut input = String::new();
-                io::stdin().read_line(&mut input).expect("Failed to read line");
+                io::stdin()
+                    .read_line(&mut input)
+                    .expect("Failed to read line");
                 let path = input.trim();
                 File::create(path).expect("Failed to create file");
                 println!("Created file {}", path);
@@ -38,7 +44,9 @@ fn main() {
             "delete" => {
                 println!("Enter the file path:");
                 let mut input = String::new();
-                io::stdin().read_line(&mut input).expect("Failed to read line");
+                io::stdin()
+                    .read_line(&mut input)
+                    .expect("Failed to read line");
                 let path = input.trim();
                 fs::remove_file(path).expect("Failed to delete file");
                 println!("Deleted file {}", path);
@@ -53,3 +61,4 @@ fn main() {
         }
     }
 }
+
